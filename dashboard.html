@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Dream Saccos LTD</title>
+    <meta name="description" content="Management dashboard for Dream Saccos LTD">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <img src="images/logo.png" alt="Dream Saccos Logo">
+                <span>Dream Saccos</span>
+            </a>
+            <button class="sidebar-close" id="sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item active" data-section="dashboard">
+                    <a href="#dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="homepage">
+                    <a href="#homepage">
+                        <i class="fas fa-home"></i>
+                        <span>Homepage</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="services">
+                    <a href="#services">
+                        <i class="fas fa-concierge-bell"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="about">
+                    <a href="#about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Page</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="vacancies">
+                    <a href="#vacancies">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Vacancies</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="applicants">
+                    <a href="#applicants">
+                        <i class="fas fa-users"></i>
+                        <span>Applicants</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-section="settings">
+                    <a href="#settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="index.html" class="view-site-btn" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                <span>View Site</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle" id="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title" id="page-title">Dashboard</h1>
+            </div>
+            <div class="topbar-right">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <button class="user-btn" id="user-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="admin-name">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="#" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Dashboard Overview Section -->
+            <section class="content-section active" id="dashboard-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-members">15,000</h3>
+                            <p>Total Members</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-vacancies">0</h3>
+                            <p>Active Vacancies</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-applicants">0</h3>
+                            <p>Total Applicants</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-info">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Branches</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Recent Applicants</h3>
+                            <a href="#applicants" class="view-all">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="recent-applicants" id="recent-applicants">
+                                <p class="no-data">No applicants yet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="quick-actions">
+                                <button class="quick-action-btn" data-action="add-vacancy">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Add Vacancy</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="edit-homepage">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Edit Homepage</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="view-applicants">
+                                    <i class="fas fa-users"></i>
+                                    <span>View Applicants</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="site-settings">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Settings</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Homepage Editor Section -->
+            <section class="content-section" id="homepage-section">
+                <div class="section-header">
+                    <h2>Edit Homepage Content</h2>
+                    <p>Modify the content displayed on your homepage</p>
+                </div>
+
+                <div class="editor-tabs">
+                    <button class="tab-btn active" data-tab="hero">Hero Section</button>
+                    <button class="tab-btn" data-tab="stats">Statistics</button>
+                    <button class="tab-btn" data-tab="mission">Mission & Vision</button>
+                    <button class="tab-btn" data-tab="values">Core Values</button>
+                </div>
+
+                <div class="editor-content">
+                    <!-- Hero Tab -->
+                    <div class="tab-content active" id="hero-tab">
+                        <form id="hero-form" class="editor-form">
+                            <div class="form-group">
+                                <label for="hero-title-input">Hero Title</label>
+                                <input type="text" id="hero-title-input" data-content="hero-title" value="TOGETHER WE BUILD OUR FUTURE">
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-subtitle-input">Hero Subtitle</label>
+                                <textarea id="hero-subtitle-input" data-content="hero-subtitle" rows="3">Empowering communities through financial inclusion and cooperative savings</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-bg-input">Background Image URL</label>
+                                <input type="text" id="hero-bg-input" data-content="hero-bg" placeholder="Enter image URL">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Stats Tab -->
+                    <div class="tab-content" id="stats-tab">
+                        <form id="stats-form" class="editor-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="stat-members-input">Members Count</label>
+                                    <input type="number" id="stat-members-input" data-stat="members" value="335">
+                                </div>
+                                <div class="form-group">
+                                    <label for="stat-assets-input">Total Assets (ETB)</label>
+                                    <input type="number" id="stat-assets-input" data-stat="assets" value="5000000">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Statistics</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Mission Tab -->
+                    <div class="tab-content" id="mission-tab">
+                        <form id="mission-form" class="editor-form">
+                            <div class="form-group">
+                                <label for="mission-input">Mission Statement</label>
+                                <textarea id="mission-input" data-content="mission-text" rows="5">To provide accessible, affordable, and sustainable financial services that empower our members to achieve their economic goals and improve their quality of life.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="vision-input">Vision Statement</label>
+                                <textarea id="vision-input" data-content="vision-text" rows="5">To be the leading and most trusted savings and credit cooperative in Ethiopia, recognized for our innovative financial solutions, member-centric approach, and significant contribution to the economic empowerment of our community.</textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Values Tab -->
+                    <div class="tab-content" id="values-tab">
+                        <div class="values-editor" id="values-editor">
+                            <!-- Values will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Editor Section -->
+            <section class="content-section" id="services-section">
+                <div class="section-header">
+                    <h2>Edit Services</h2>
+                    <p>Manage the services displayed on your website</p>
+                </div>
+
+                <div class="editor-tabs">
+                    <button class="tab-btn active" data-tab="savings-service">Savings Account</button>
+                    <button class="tab-btn" data-tab="fixed-service">Fixed Deposit</button>
+                    <button class="tab-btn" data-tab="micro-service">Micro Loans</button>
+                    <button class="tab-btn" data-tab="business-service">Business Loans</button>
+                    <button class="tab-btn" data-tab="agri-service">Agricultural Loans</button>
+                </div>
+
+                <div class="editor-content">
+                    <!-- Savings Account -->
+                    <div class="tab-content active" id="savings-service-tab">
+                        <form id="savings-service-form" class="editor-form">
+                            <div class="form-group">
+                                <label>Service Title</label>
+                                <input type="text" id="savings-title-input" value="Savings Account">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="savings-desc-input" rows="4">Build your financial future with our secure and flexible savings accounts. Enjoy competitive interest rates, easy access to your funds, and the peace of mind that comes with knowing your money is safe with us.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Minimum Opening Balance (ETB)</label>
+                                <input type="text" id="savings-min-input" value="50 ETB">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Savings Account</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Fixed Deposit -->
+                    <div class="tab-content" id="fixed-service-tab">
+                        <form id="fixed-service-form" class="editor-form">
+                            <div class="form-group">
+                                <label>Service Title</label>
+                                <input type="text" id="fixed-title-input" value="Fixed Deposit">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="fixed-desc-input" rows="4">Maximize your returns with our Fixed Deposit accounts. Lock in your savings for a fixed term and enjoy higher interest rates. Perfect for long-term financial goals and building wealth securely.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Minimum Deposit Amount (ETB)</label>
+                                <input type="text" id="fixed-min-input" value="1,000 ETB">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Fixed Deposit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Micro Loans -->
+                    <div class="tab-content" id="micro-service-tab">
+                        <form id="micro-service-form" class="editor-form">
+                            <div class="form-group">
+                                <label>Service Title</label>
+                                <input type="text" id="micro-title-input" value="Micro Loans">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="micro-desc-input" rows="4">Access quick and affordable micro loans for your personal needs. Whether it's for education, medical expenses, or small purchases, our micro loans are designed to help you meet your immediate financial needs.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Loan Amount Range</label>
+                                <input type="text" id="micro-range-input" value="5,000 to 5,000,000 ETB">
+                            </div>
+                            <div class="form-group">
+                                <label>Repayment Period</label>
+                                <input type="text" id="micro-repayment-input" value="Varies depending on agreement">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Micro Loans</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Business Loans -->
+                    <div class="tab-content" id="business-service-tab">
+                        <form id="business-service-form" class="editor-form">
+                            <div class="form-group">
+                                <label>Service Title</label>
+                                <input type="text" id="business-title-input" value="Business Loans">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="business-desc-input" rows="4">Grow your business with our tailored business loan solutions. Whether you need working capital, equipment financing, or expansion funds, we offer competitive rates and flexible terms to support your business growth.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Maximum Loan Amount</label>
+                                <input type="text" id="business-max-input" value="5,000,000 ETB">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Business Loans</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Agricultural Loans -->
+                    <div class="tab-content" id="agri-service-tab">
+                        <form id="agri-service-form" class="editor-form">
+                            <div class="form-group">
+                                <label>Service Title</label>
+                                <input type="text" id="agri-title-input" value="Agricultural Loans">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="agri-desc-input" rows="4">Support your farming activities with our specialized agricultural loans. From purchasing seeds and fertilizers to farm equipment and livestock, we provide the financial support you need for successful farming.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Maximum Loan Amount</label>
+                                <input type="text" id="agri-max-input" value="5,000,000 ETB">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Agricultural Loans</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Editor Section -->
+            <section class="content-section" id="about-section">
+                <div class="section-header">
+                    <h2>Edit About Page</h2>
+                    <p>Modify the content on your about page</p>
+                </div>
+
+                <div class="editor-tabs">
+                    <button class="tab-btn active" data-tab="story">Our Story</button>
+                    <button class="tab-btn" data-tab="board">Board Members</button>
+                    <button class="tab-btn" data-tab="timeline">Timeline</button>
+                </div>
+
+                <div class="editor-content">
+                    <div class="tab-content active" id="story-tab">
+                        <form id="story-form" class="editor-form">
+                            <div class="form-group">
+                                <label for="story-input">Our Story</label>
+                                <textarea id="story-input" data-content="story-text" rows="10">Dream Saccos LTD was founded in 2026 as a community-focused financial cooperative aimed at empowering members in South Ethiopia. We are a newly registered Saving and Credit Cooperative officially registered by the Ethiopian Government...</textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Story</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content" id="board-tab">
+                        <div class="board-editor" id="board-editor">
+                            <!-- Board members will be loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="tab-content" id="timeline-tab">
+                        <div class="timeline-editor" id="timeline-editor">
+                            <!-- Timeline will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vacancies Section -->
+            <section class="content-section" id="vacancies-section">
+                <div class="section-header">
+                    <h2>Manage Vacancies</h2>
+                    <p>Create, edit, and delete job vacancies</p>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-primary" id="add-vacancy-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Vacancy</span>
+                    </button>
+                </div>
+
+                <div class="vacancies-table-container">
+                    <table class="data-table" id="vacancies-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Department</th>
+                                <th>Type</th>
+                                <th>Deadline</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vacancies-tbody">
+                            <!-- Vacancies will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Applicants Section -->
+            <section class="content-section" id="applicants-section">
+                <div class="section-header">
+                    <h2>Manage Applicants</h2>
+                    <p>View and manage job applications</p>
+                </div>
+
+                <div class="filter-bar">
+                    <select id="applicant-filter" class="filter-select">
+                        <option value="">All Vacancies</option>
+                    </select>
+                    <button class="btn btn-outline" id="export-applicants">
+                        <i class="fas fa-download"></i>
+                        <span>Export</span>
+                    </button>
+                </div>
+
+                <div class="applicants-table-container">
+                    <table class="data-table" id="applicants-table">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Father's Name</th>
+                                <th>Phone</th>
+                                <th>Position</th>
+                                <th>GPA</th>
+                                <th>Applied Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicants-tbody">
+                            <!-- Applicants will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="content-section" id="settings-section">
+                <div class="section-header">
+                    <h2>Site Settings</h2>
+                    <p>Configure your website settings</p>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3><i class="fas fa-image"></i> Logo & Branding</h3>
+                        <form id="logo-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="logo-url">Logo URL</label>
+                                <input type="text" id="logo-url" placeholder="Enter logo image URL">
+                            </div>
+                            <div class="form-group">
+                                <label for="site-name">Site Name</label>
+                                <input type="text" id="site-name" value="Dream Saccos LTD">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Branding</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="fas fa-phone"></i> Contact Information</h3>
+                        <form id="contact-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone" value="+251900502474">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" value="support@dreamsaccosltd.pro.et">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-address">Address</label>
+                                <input type="text" id="contact-address" value="South Ethiopia">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Contact</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="fas fa-share-alt"></i> Social Media Links</h3>
+                        <form id="social-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="social-facebook">Facebook</label>
+                                <input type="url" id="social-facebook" placeholder="Facebook URL">
+                            </div>
+                            <div class="form-group">
+                                <label for="social-twitter">Twitter</label>
+                                <input type="url" id="social-twitter" placeholder="Twitter URL">
+                            </div>
+                            <div class="form-group">
+                                <label for="social-youtube">YouTube</label>
+                                <input type="url" id="social-youtube" placeholder="YouTube URL">
+                            </div>
+                            <div class="form-group">
+                                <label for="social-tiktok">TikTok</label>
+                                <input type="url" id="social-tiktok" value="https://vm.tiktok.com/ZS9JHwbaquMyE-0aW9v/">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Social Links</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="fas fa-database"></i> Data Management</h3>
+                        <div class="data-actions">
+                            <button class="btn btn-outline" id="export-data">
+                                <i class="fas fa-download"></i>
+                                <span>Export All Data</span>
+                            </button>
+                            <button class="btn btn-danger" id="clear-data">
+                                <i class="fas fa-trash"></i>
+                                <span>Clear All Data</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Vacancy Modal -->
+    <div class="modal" id="vacancy-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 class="modal-title" id="vacancy-modal-title">Add New Vacancy</h2>
+                <button class="modal-close" id="vacancy-modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="vacancy-form" class="vacancy-form">
+                    <input type="hidden" id="vacancy-id" name="id">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vacancy-title">Job Title *</label>
+                            <input type="text" id="vacancy-title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vacancy-department">Department *</label>
+                            <select id="vacancy-department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="Finance">Finance</option>
+                                <option value="IT">IT</option>
+                                <option value="Customer Service">Customer Service</option>
+                                <option value="Operations">Operations</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Human Resources">Human Resources</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vacancy-location">Location</label>
+                            <input type="text" id="vacancy-location" name="location" value="South Ethiopia">
+                        </div>
+                        <div class="form-group">
+                            <label for="vacancy-type">Employment Type *</label>
+                            <select id="vacancy-type" name="type" required>
+                                <option value="">Select Type</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Contract">Contract</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="vacancy-description">Job Description *</label>
+                        <textarea id="vacancy-description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="vacancy-requirements">Requirements (one per line)</label>
+                        <textarea id="vacancy-requirements" name="requirements" rows="4" placeholder="Bachelor's degree in relevant field&#10;Minimum 2 years experience&#10;Strong communication skills"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vacancy-deadline">Application Deadline *</label>
+                            <input type="date" id="vacancy-deadline" name="deadline" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vacancy-salary">Salary Range (ETB)</label>
+                            <div class="salary-inputs">
+                                <input type="number" id="vacancy-salary-min" name="salaryMin" placeholder="Min">
+                                <span>-</span>
+                                <input type="number" id="vacancy-salary-max" name="salaryMax" placeholder="Max">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="vacancy-active" name="isActive" checked>
+                            <span class="checkmark"></span>
+                            <span>Vacancy is Active</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="vacancy-featured" name="isFeatured">
+                            <span class="checkmark"></span>
+                            <span>Featured Vacancy</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-vacancy">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Vacancy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Applicant Detail Modal -->
+    <div class="modal" id="applicant-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Applicant Details</h2>
+                <button class="modal-close" id="applicant-modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="applicant-detail-content">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-sm">
+            <div class="confirm-content">
+                <div class="confirm-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 id="confirm-title">Confirm Action</h3>
+                <p id="confirm-message">Are you sure you want to proceed?</p>
+                <div class="confirm-actions">
+                    <button class="btn btn-outline" id="confirm-cancel">Cancel</button>
+                    <button class="btn btn-danger" id="confirm-ok">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div class="notification-container" id="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

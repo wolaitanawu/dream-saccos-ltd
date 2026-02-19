@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Opportunities - Dream Saccos LTD</title>
+    <meta name="description" content="Join our team at Dream Saccos LTD - Explore career opportunities and apply for open positions">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Dream Saccos Logo" class="logo-img" id="site-logo">
+                <span class="logo-text">Dream Saccos <span class="ltd">LTD</span></span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link" data-lang="nav-home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link" data-lang="nav-services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link" data-lang="nav-about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="vacancies.html" class="nav-link active" data-lang="nav-vacancies">Vacancies</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="lang-toggle">
+                    <span>AM</span>
+                </button>
+                <a href="login.html" class="btn btn-login" data-lang="nav-login">Login</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <h1 class="page-title" data-lang="vacancies-page-title">Career Opportunities</h1>
+            <p class="page-subtitle" data-lang="vacancies-page-subtitle">Join our team and help us build a financially inclusive future</p>
+        </div>
+    </section>
+
+    <!-- Vacancies Section -->
+    <section class="vacancies-section" id="vacancies-section">
+        <div class="container">
+            <!-- Filters -->
+            <div class="vacancies-filters">
+                <div class="filter-group">
+                    <label for="department-filter" data-lang="filter-department">Department:</label>
+                    <select id="department-filter" class="filter-select">
+                        <option value="" data-lang="filter-all">All Departments</option>
+                        <option value="Finance">Finance</option>
+                        <option value="IT">IT</option>
+                        <option value="Customer Service">Customer Service</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Human Resources">Human Resources</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="type-filter" data-lang="filter-type">Type:</label>
+                    <select id="type-filter" class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Vacancies Grid -->
+            <div class="vacancies-grid" id="vacancies-grid">
+                <!-- Vacancies will be loaded dynamically -->
+            </div>
+
+            <!-- No Vacancies Message -->
+            <div class="no-vacancies" id="no-vacancies" style="display: none;">
+                <i class="fas fa-briefcase"></i>
+                <h3 data-lang="no-vacancies-title">No Vacancies Available</h3>
+                <p data-lang="no-vacancies-desc">There are currently no open positions. Please check back later.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div class="modal" id="apply-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Apply for Position</h2>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="application-form" class="application-form">
+                    <input type="hidden" id="vacancy-id" name="vacancyId">
+                    
+                    <div class="form-group">
+                        <label for="applicant-name" data-lang="form-fullname">Full Name *</label>
+                        <input type="text" id="applicant-name" name="fullName" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-father-name" data-lang="form-fathername">Father's Name *</label>
+                        <input type="text" id="applicant-father-name" name="fatherName" required placeholder="Enter your father's name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-phone" data-lang="form-phone">Phone Number *</label>
+                        <input type="tel" id="applicant-phone" name="phone" required placeholder="e.g., 0912345678">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-email" data-lang="form-email">Email Address</label>
+                        <input type="email" id="applicant-email" name="email" placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-department" data-lang="form-department">Department Applied *</label>
+                        <input type="text" id="applicant-department" name="department" required readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-gpa" data-lang="form-gpa">GPA *</label>
+                        <input type="number" id="applicant-gpa" name="gpa" required min="0" max="4" step="0.01" placeholder="Enter your GPA (0-4)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-experience" data-lang="form-experience">Years of Experience</label>
+                        <input type="number" id="applicant-experience" name="experience" min="0" max="50" placeholder="Years of experience">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant-cover" data-lang="form-cover">Cover Letter</label>
+                        <textarea id="applicant-cover" name="coverLetter" rows="4" placeholder="Tell us why you're the right fit for this position"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-apply" data-lang="btn-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary" data-lang="btn-submit">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-sm">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 data-lang="success-title">Application Submitted!</h3>
+                <p data-lang="success-desc">Thank you for applying. We will review your application and contact you soon.</p>
+                <button class="btn btn-primary" id="success-close" data-lang="btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vacancy Detail Modal -->
+    <div class="modal" id="vacancy-detail-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 class="modal-title" id="detail-title">Job Details</h2>
+                <button class="modal-close" id="detail-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="vacancy-detail-content">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Dream Saccos Logo" class="footer-logo-img">
+                        <span>Dream Saccos LTD</span>
+                    </div>
+                    <p class="footer-desc" data-lang="footer-desc">Empowering communities through cooperative savings and financial inclusion. Founded in 2026.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://vm.tiktok.com/ZS9JHwbaquMyE-0aW9v/" class="social-link" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title" data-lang="footer-links">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-lang="nav-home">Home</a></li>
+                        <li><a href="services.html" data-lang="nav-services">Services</a></li>
+                        <li><a href="about.html" data-lang="nav-about">About</a></li>
+                        <li><a href="vacancies.html" data-lang="nav-vacancies">Vacancies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title" data-lang="footer-services">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Savings Accounts</a></li>
+                        <li><a href="services.html">Loan Services</a></li>
+                        <li><a href="services.html">Membership</a></li>
+                        <li><a href="services.html">Agricultural Loans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title" data-lang="footer-contact">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+251900502474">+251 900 502 474</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:support@dreamsaccosltd.pro.et">support@dreamsaccosltd.pro.et</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>South Ethiopia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Dream Saccos LTD. <span data-lang="footer-rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/vacancies.js"></script>
+</body>
+</html>
